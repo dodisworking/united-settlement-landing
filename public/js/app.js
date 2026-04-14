@@ -52,6 +52,25 @@
   var btnCallBottom = document.getElementById('btnCallBottom');
   if (btnCallBottom) btnCallBottom.addEventListener('click', onCallClick);
 
+  // Expandable How It Works cards
+  document.querySelectorAll('.how-card.expandable').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var wasOpen = card.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.how-card.expandable').forEach(function(c) {
+        c.classList.remove('open');
+        var exp = c.querySelector('.how-card-expand');
+        if (exp) exp.style.maxHeight = null;
+      });
+      // Open clicked (if wasn't open)
+      if (!wasOpen) {
+        card.classList.add('open');
+        var expand = card.querySelector('.how-card-expand');
+        if (expand) expand.style.maxHeight = expand.scrollHeight + 'px';
+      }
+    });
+  });
+
   // Accordion toggle
   document.querySelectorAll('.accordion-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
