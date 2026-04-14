@@ -701,6 +701,21 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
 }
 
+.footer-registration {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.footer-links {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12px;
+}
+
+.footer-links a,
 .footer-disclaimer a {
   color: rgba(255,255,255,0.6);
   text-decoration: underline;
