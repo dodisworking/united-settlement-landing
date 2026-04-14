@@ -48,6 +48,31 @@
     });
   }
 
+  // Bottom call button pixel tracking
+  var btnCallBottom = document.getElementById('btnCallBottom');
+  if (btnCallBottom) btnCallBottom.addEventListener('click', onCallClick);
+
+  // Accordion toggle
+  document.querySelectorAll('.accordion-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.parentElement;
+      var content = item.querySelector('.accordion-content');
+      var isOpen = item.classList.contains('open');
+
+      // Close all items in same accordion
+      item.parentElement.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.accordion-content').style.maxHeight = null;
+      });
+
+      // Open clicked one (if it wasn't already open)
+      if (!isOpen) {
+        item.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+
   // Learn More button
   var btnLearn = document.getElementById('btnLearn');
   if (btnLearn) {

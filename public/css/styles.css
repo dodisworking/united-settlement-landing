@@ -527,140 +527,186 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
 }
 
-/* ---- Trust Section ---- */
-.trust-section {
-  padding: 40px 0;
-  background: #0b304a;
-}
-
-.trust-cards {
+/* ---- Inline Trust (inside main content, right under CTAs) ---- */
+.inline-trust {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 16px;
+  padding: 20px 0 0;
   flex-wrap: wrap;
 }
 
-.trust-card {
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 24px 36px;
-  text-align: center;
-  min-width: 160px;
+.inline-trust-item {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
 }
 
-.trust-number {
-  font-size: 36px;
-  font-weight: 900;
+.inline-trust-item strong {
   color: #19a4ac;
-  line-height: 1;
-  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 900;
 }
 
-.trust-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.inline-trust-divider {
+  width: 1px;
+  height: 24px;
+  background: #ddd;
 }
 
-/* ---- Services Section ---- */
+/* ---- Services & FAQ Accordion ---- */
 .services-section {
   padding: 50px 0;
   background: #f2f5f7;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.faq-section {
+  padding: 50px 0;
+  background: #ffffff;
 }
 
-.service-card {
+.accordion {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.accordion-item {
   background: #ffffff;
   border-radius: 8px;
-  padding: 28px 20px;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-  transition: box-shadow 0.2s, transform 0.2s;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
-.service-card:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
+.faq-section .accordion-item {
+  background: #f8fafb;
 }
 
-.service-icon {
-  margin-bottom: 14px;
-}
-
-.service-card strong {
-  display: block;
+.accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
   font-size: 16px;
+  font-weight: 700;
   color: #0b304a;
-  margin-bottom: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
 }
 
-.service-card p {
-  font-size: 13px;
+.accordion-btn:hover {
+  background: rgba(25,164,172,0.05);
+}
+
+.accordion-arrow {
+  font-size: 22px;
+  font-weight: 400;
+  color: #19a4ac;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.accordion-item.open .accordion-arrow {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-content p {
+  padding: 0 24px 18px;
+  font-size: 14px;
   color: #666;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* ---- How It Works ---- */
+/* ---- How It Works (3 steps) ---- */
 .how-section {
   padding: 50px 0;
   background: #ffffff;
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 900;
   color: #0b304a;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
-.how-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+.how-steps-three {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.how-step {
-  text-align: center;
-  padding: 20px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  transition: box-shadow 0.2s;
+.how-step-h {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  background: #f8fafb;
+  border-radius: 10px;
+  border-left: 4px solid #19a4ac;
 }
 
-.how-step:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+.how-num {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  background: #19a4ac;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.how-icon {
-  margin-bottom: 12px;
-}
-
-.how-step-label {
-  font-size: 13px;
-  font-weight: 700;
-  color: #ef8441;
-  margin-bottom: 6px;
-}
-
-.how-step strong {
+.how-body strong {
   display: block;
-  font-size: 16px;
+  font-size: 17px;
   color: #0b304a;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
-.how-step p {
-  font-size: 13px;
+.how-body p {
+  font-size: 14px;
   color: #666;
   line-height: 1.5;
+}
+
+/* ---- Second CTA ---- */
+.second-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.second-cta-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b304a;
+  margin-bottom: 16px;
+}
+
+.second-cta .btn-primary {
+  max-width: 420px;
+  margin: 0 auto;
 }
 
 /* ---- Footer ---- */
@@ -778,14 +824,6 @@ a { color: inherit; text-decoration: none; }
     grid-template-columns: 1fr;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .how-steps {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
 
   .section-title {
     font-size: 26px;
