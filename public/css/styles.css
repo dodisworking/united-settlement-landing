@@ -527,40 +527,93 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
 }
 
-/* ---- Inline Trust (inside main content, right under CTAs) ---- */
-.inline-trust {
+/* ---- Reviews Section ---- */
+.reviews-section {
+  padding: 50px 0;
+  background: #0b304a;
+}
+
+.reviews-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.review-logo {
+  margin-bottom: 12px;
+}
+
+.review-stars {
+  font-size: 28px;
+  color: #ef8441;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.review-rating {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b304a;
+  margin-bottom: 10px;
+}
+
+.review-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #19a4ac;
+  text-decoration: underline;
+}
+
+/* ---- Trust Stats Bar ---- */
+.trust-bar {
+  padding: 30px 0;
+  background: #0b304a;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.trust-bar-items {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 20px 0 0;
+  gap: 50px;
   flex-wrap: wrap;
 }
 
-.inline-trust-item {
-  font-size: 14px;
-  color: #666;
-  white-space: nowrap;
+.trust-bar-item {
+  text-align: center;
 }
 
-.inline-trust-item strong {
-  color: #19a4ac;
-  font-size: 18px;
+.trust-bar-num {
+  font-size: 36px;
   font-weight: 900;
+  color: #19a4ac;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
-.inline-trust-divider {
-  width: 1px;
-  height: 24px;
-  background: #ddd;
+.trust-bar-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* ---- Services & FAQ Accordion ---- */
-.services-section {
-  padding: 50px 0;
-  background: #f2f5f7;
-}
-
+/* ---- FAQ Accordion ---- */
 .faq-section {
   padding: 50px 0;
   background: #ffffff;
@@ -632,7 +685,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.6;
 }
 
-/* ---- How It Works (3 steps) ---- */
+/* ---- How It Works (4 cards) ---- */
 .how-section {
   padding: 50px 0;
   background: #ffffff;
@@ -646,47 +699,42 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 36px;
 }
 
-.how-steps-three {
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.how-step-h {
-  display: flex;
-  align-items: flex-start;
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 24px;
-  background: #f8fafb;
+}
+
+.how-card {
+  text-align: center;
+  padding: 24px 16px;
+  border: 1px solid #eee;
   border-radius: 10px;
-  border-left: 4px solid #19a4ac;
+  transition: box-shadow 0.2s;
 }
 
-.how-num {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  border-radius: 50%;
-  background: #19a4ac;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.how-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
-.how-body strong {
-  display: block;
-  font-size: 17px;
-  color: #0b304a;
+.how-icon { margin-bottom: 10px; }
+
+.how-card-step {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ef8441;
   margin-bottom: 4px;
 }
 
-.how-body p {
-  font-size: 14px;
+.how-card strong {
+  display: block;
+  font-size: 15px;
+  color: #0b304a;
+  margin-bottom: 8px;
+}
+
+.how-card p {
+  font-size: 13px;
   color: #666;
   line-height: 1.5;
 }
@@ -826,16 +874,26 @@ a { color: inherit; text-decoration: none; }
 
 
   .section-title {
-    font-size: 26px;
+    font-size: 24px;
   }
 
-  .trust-cards {
+  .reviews-title {
+    font-size: 24px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .trust-bar-items {
+    gap: 24px;
+  }
+
+  .how-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
-  }
-
-  .trust-card {
-    padding: 16px 20px;
-    min-width: 130px;
   }
 
   .footer-inner {
