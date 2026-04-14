@@ -788,7 +788,6 @@ a { color: inherit; text-decoration: none; }
 /* ---- Second CTA ---- */
 .second-cta {
   text-align: center;
-  margin-top: 40px;
 }
 
 .second-cta-text {
@@ -918,7 +917,6 @@ a { color: inherit; text-decoration: none; }
     grid-template-columns: 1fr;
   }
 
-
   .section-title {
     font-size: 24px;
   }
@@ -989,17 +987,4 @@ a { color: inherit; text-decoration: none; }
     font-size: 36px;
   }
 
-  .how-steps {
-    grid-template-columns: 1fr;
-  }
-
-  .trust-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .trust-card {
-    width: 100%;
-    max-width: 240px;
-  }
 }
