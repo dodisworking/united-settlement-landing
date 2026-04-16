@@ -52,22 +52,34 @@
   var btnCallBottom = document.getElementById('btnCallBottom');
   if (btnCallBottom) btnCallBottom.addEventListener('click', onCallClick);
 
-  // Expandable How It Works cards
-  document.querySelectorAll('.how-card.expandable').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var wasOpen = card.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.how-card.expandable').forEach(function(c) {
-        c.classList.remove('open');
-        var exp = c.querySelector('.how-card-expand');
-        if (exp) exp.style.maxHeight = null;
-      });
-      // Open clicked (if wasn't open)
-      if (!wasOpen) {
-        card.classList.add('open');
-        var expand = card.querySelector('.how-card-expand');
-        if (expand) expand.style.maxHeight = expand.scrollHeight + 'px';
-      }
+  // How It Works tabs
+  function activateHowPanel(panelId) {
+    var tabs = document.querySelectorAll('.how-tab');
+    var panels = document.querySelectorAll('.how-panel');
+    tabs.forEach(function(t) {
+      var isActive = t.getAttribute('data-panel') === panelId;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    panels.forEach(function(p) {
+      p.classList.toggle('active', p.getAttribute('data-panel') === panelId);
+    });
+  }
+
+  document.querySelectorAll('.how-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      activateHowPanel(tab.getAttribute('data-panel'));
+    });
+  });
+
+  document.querySelectorAll('.how-next-btn[data-next]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var next = btn.getAttribute('data-next');
+      activateHowPanel(next);
+      // Scroll the tabs bar into view so the user sees the new panel
+      var wrap = document.querySelector('.how-tabs-wrap');
+      if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 

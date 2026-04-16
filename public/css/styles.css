@@ -806,75 +806,176 @@ a { color: inherit; text-decoration: none; }
   font-weight: 800;
 }
 
-.how-card {
-  text-align: center;
-  padding: 24px 16px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  transition: box-shadow 0.2s;
+/* ---- Tabbed How It Works (matches unitedsettlement.com/how-it-works) ---- */
+.how-tabs-wrap {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(11, 48, 74, 0.06);
+  border: 1px solid #eef2f4;
+  overflow: hidden;
 }
 
-.how-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+.how-tabs {
+  display: flex;
+  border-bottom: 1px solid #e8ecef;
+  background: #fafbfc;
 }
 
-.how-icon { margin-bottom: 10px; }
-
-.how-card-step {
-  font-size: 13px;
+.how-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 22px 16px 18px;
+  font-family: inherit;
+  font-size: 16px;
   font-weight: 700;
-  color: #ef8441;
-  margin-bottom: 4px;
-}
-
-.how-card strong {
-  display: block;
-  font-size: 15px;
-  color: #0b304a;
-  margin-bottom: 8px;
-}
-
-.how-card p {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.5;
-}
-
-/* ---- Expandable How Cards ---- */
-.how-card.expandable {
+  color: #9aa4ae;
   cursor: pointer;
   position: relative;
+  transition: color 0.2s;
+  text-align: center;
+  line-height: 1.2;
 }
 
-.how-card.expandable::after {
-  content: '+';
+.how-tab:hover {
+  color: #0b304a;
+}
+
+.how-tab.active {
+  color: #0b304a;
+  background: #ffffff;
+}
+
+.how-tab.active::after {
+  content: '';
   position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 18px;
-  color: #19a4ac;
-  font-weight: 400;
+  left: 20%;
+  right: 20%;
+  bottom: -1px;
+  height: 3px;
+  background: #ef8441;
+  border-radius: 2px;
+}
+
+.how-panels {
+  padding: 48px 36px 32px;
+}
+
+.how-panel {
+  display: none;
+  animation: fadeInPanel 0.25s ease;
+}
+
+.how-panel.active {
+  display: block;
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.how-steps {
+  display: grid;
+  gap: 32px;
+}
+
+.how-steps-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.how-steps-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.how-step {
+  text-align: left;
+  padding: 8px;
+}
+
+.how-step-icon {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.how-step-num {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0b304a;
+  margin-bottom: 14px;
+}
+
+.how-step-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: #0b304a;
+  margin: 0 0 14px;
+  line-height: 1.3;
+}
+
+.how-step-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.how-step-cta {
+  display: inline-block;
+  margin-top: 16px;
+  color: #ef8441;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 2px solid #ef8441;
+  padding-bottom: 2px;
+}
+
+.how-step-cta:hover {
+  opacity: 0.8;
+}
+
+.how-panel-next {
+  text-align: right;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #f2f4f6;
+}
+
+.how-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b304a;
+  cursor: pointer;
+  padding: 8px 4px;
+  text-decoration: none;
   transition: transform 0.2s;
 }
 
-.how-card.expandable.open::after {
-  transform: rotate(45deg);
+.how-next-btn:hover {
+  transform: translateX(3px);
 }
 
-.how-card-expand {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
+.how-next-cta {
+  background: #ef8441;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 50px;
 }
 
-.how-card-expand p {
-  padding-top: 8px;
-  border-top: 1px solid #eee;
-  margin-top: 8px;
+.how-next-cta svg {
+  stroke: #ffffff;
 }
 
-.how-card.open .how-card-expand {
-  max-height: 600px;
+.how-next-cta:hover {
+  background: #e27534;
 }
 
 .second-cta-section {
@@ -1052,19 +1153,45 @@ a { color: inherit; text-decoration: none; }
     gap: 24px;
   }
 
-  .how-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .how-grid-nine {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
   .section-sub {
     font-size: 13px;
     margin-bottom: 20px;
+  }
+
+  /* Tab how-it-works on mobile: scrollable tabs, stacked steps */
+  .how-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .how-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .how-tab {
+    flex: 0 0 auto;
+    padding: 16px 14px 14px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .how-panels {
+    padding: 28px 20px 20px;
+  }
+
+  .how-steps-2,
+  .how-steps-3 {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .how-step-title {
+    font-size: 17px;
+  }
+
+  .how-panel-next {
+    text-align: center;
   }
 
   .footer-inner {
